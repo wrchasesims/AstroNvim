@@ -19,7 +19,7 @@ local options = astronvim.user_opts("options", {
     foldlevel = 99, -- set high foldlevel for nvim-ufo
     foldlevelstart = 99, -- start with all code unfolded
     foldcolumn = vim.fn.has "nvim-0.9" == 1 and "1" or nil, -- show foldcolumn in nvim 0.9
-    history = 100, -- Number of commands to remember in a history table
+    history = 20, -- Number of commands to remember in a history table
     ignorecase = true, -- Case insensitive searching
     infercase = true, -- Infer cases in keyword completion
     laststatus = 3, -- globalstatus
@@ -45,7 +45,7 @@ local options = astronvim.user_opts("options", {
     undofile = true, -- Enable persistent undo
     updatetime = 300, -- Length of time to wait before triggering the plugin
     virtualedit = "block", -- allow going past end of line in visual block mode
-    wrap = false, -- Disable wrapping of lines longer than the width of window
+    wrap = true, -- Disable wrapping of lines longer than the width of window
     writebackup = false, -- Disable making a backup before overwriting a file
   },
   g = {
@@ -53,16 +53,16 @@ local options = astronvim.user_opts("options", {
     maplocalleader = ",", -- set default local leader key
     -- AstroNvim specific global options
     autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-    autopairs_enabled = true, -- enable autopairs at start
+    autopairs_enabled = false, -- enable autopairs at start
     cmp_enabled = true, -- enable completion at start
     codelens_enabled = true, -- enable or disable automatic codelens refreshing for lsp that support it
-    diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
+    diagnostics_mode = 2, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
     highlighturl_enabled = true, -- highlight URLs by default
     icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available)
     inlay_hints_enabled = false, -- enable or disable LSP inlay hints on startup (Neovim v0.10 only)
     lsp_handlers_enabled = true, -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
     semantic_tokens_enabled = true, -- enable or disable LSP semantic tokens on startup
-    ui_notifications_enabled = true, -- disable notifications (TODO: rename to  notifications_enabled in AstroNvim v4)
+    ui_notifications_enabled = false, -- disable notifications (TODO: rename to  notifications_enabled in AstroNvim v4)
   },
   t = vim.t.bufs and vim.t.bufs or { bufs = vim.api.nvim_list_bufs() }, -- initialize buffers for the current tab
 })
